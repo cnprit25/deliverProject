@@ -75,25 +75,20 @@
 </section>
 
 <!-- Help Search -->
-<section class="dlivr-help-section section">
-<div class="container">
-<h2>How can we help you?</h2>
-<div class="search-bar">
-  <input type="text" placeholder="Tell us what you need help with">
-  
-  <button>
-    Search
-    <span class="icon">🔍</span>
-  </button>
-</div>
-<div class="tag-list">
-  <button>Plan a product launch campaign</button>
-  <button>Manage a social media calendar</button>
-  <button>Organize an online coding bootcamp</button>
-  <button>Create a custom strategy for YouTube</button>
-  <button>Operate hardware setup</button>
-</div>  
-</div>
+<section class="dlivr-help-sec web section">
+  <div class="container">
+      <img src="assets/images/web page_1.gif"  class="help-image">
+  </div>
+</section>
+<section class="dlivr-help-sec tab section">
+  <div class="container">
+      <img src="assets/images/tabs_1.gif"  class="help-image">
+      </div>
+</section>
+<section class="dlivr-help-sec mb section">
+  <div class="container">
+      <img src="assets/images/Mobile phone_1.gif"  class="help-image">
+  </div>
 </section>
 
 
@@ -222,7 +217,7 @@
       </ul>
     </div>
     <div>
-      <a href="#" class="button-waitlist btn-mb-show animate-bottom">
+      <a href="#" class="button-waitlist btn-mb-show animate-left">
         <span class="icon-circle"><i class="fas fa-chevron-right"></i></span>
         <span class="button-custom">Join waitlist</span>
       </a>
@@ -351,21 +346,53 @@
   animatedElements.forEach(el => observer.observe(el));
 </script>
 
-<!-- <script>
-  const boxes = document.querySelectorAll('.feature-box');
+<script>
+let scrollStep = 0;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-      }
-    });
-  }, {
-    threshold: 0.2
-  });
+window.addEventListener("wheel", function(e) {
+  const heroImage = document.querySelector(".hero-image");
+  const nextSection = document.querySelector(".next-section");
 
-  boxes.forEach(box => observer.observe(box));
-</script> -->
+  if (!heroImage) return;
+
+  // Scroll Down
+  if (e.deltaY > 0) {
+    if (scrollStep === 0) {
+      heroImage.style.transform = "scale(0.1)";
+      scrollStep++;
+      e.preventDefault();
+    } else if (scrollStep === 1) {
+      heroImage.style.transform = "scale(1.2)";
+      scrollStep++;
+      e.preventDefault();
+    } else if (scrollStep === 2) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+      scrollStep++;
+      e.preventDefault();
+    }
+  }
+
+  // Scroll Up
+  else {
+    if (scrollStep === 3) {
+      // User scrolled up from second section → go back to zoomed state
+      scrollStep = 2;
+      e.preventDefault();
+    } else if (scrollStep === 2) {
+      heroImage.style.transform = "scale(1.1)";
+      scrollStep--;
+      e.preventDefault();
+    } else if (scrollStep === 1) {
+      heroImage.style.transform = "scale(1)";
+      scrollStep--;
+      e.preventDefault();
+    } else {
+      // scrollStep === 0 → let default scroll-up behavior happen (no preventDefault)
+    }
+  }
+}, { passive: false });
+</script>
+
 
 </body>
 </html>
