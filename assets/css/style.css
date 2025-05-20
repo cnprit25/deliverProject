@@ -1455,11 +1455,15 @@ section.transform-section {
   }
 
   .form-btn {
-    width: 250px !important;
+    width: 100% !important;
+  }
+
+  .form-btn .button-custom {
+    width: 50%;
   }
 
   .button-waitlist.form-btn:hover .icon-circle {
-    transform: translateX(204px);
+    transform: translateX(255px);
   }
 }
 
