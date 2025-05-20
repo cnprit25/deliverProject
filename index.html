@@ -35,12 +35,10 @@
         <span class="icon-circle"><i class="fas fa-chevron-right"></i></span>
         <span class="button-custom">Join waitlist</span>
       </a>
-      <img src="assets/images/hero img.png" alt="hero Image" class="hero-image animate-bottom">
-
     </div>
+    <img style="width: 90%;" src="assets/images/hero img.png" alt="hero Image" class="hero-image animate-bottom">
     <div class="full-container">
       <img src="assets/images/hero-mb-img.png" alt="hero Image" class="hero-mb-image animate-bottom">
-
     </div>
   </section>
 
@@ -115,7 +113,7 @@
           </a>
         </div>
 
-        <div class="text-content ">
+        <div class="text-content">
           <h2 class="animate-right">What if <br>project management felt as easy as a conversation?</h2>
           <p class="animate-right">Imagine a workspace where managing tasks, setting goals, and collaborating feels as
             simple as chatting with a colleague. Our platform turns project management into a natural flow of
@@ -265,33 +263,48 @@
         <!-- Left features -->
         <div class="access-features">
           <div class="access-feature-item animate-left">
-            <img src="assets/images/access-1.png" alt="Launch Icon">
+            <img src="assets/images/access-1.svg" alt="Launch Icon">
             <h5>Get priority access when we launch</h5>
           </div>
           <div class="access-feature-item animate-left">
-            <img src="assets/images/access-2.png" alt="Pricing Icon">
+            <img src="assets/images/access-2.svg" alt="Pricing Icon">
             <h5>Secure founding member pricing</h5>
           </div>
           <div class="access-feature-item animate-left">
-            <img src="assets/images/access-3.png" alt="Project Icon">
+            <img src="assets/images/access-3.svg" alt="Project Icon">
             <h5>Shape the future of simple project management</span>
           </div>
         </div>
 
         <!-- Right form -->
         <div class="form-box animate-right">
-          <label>
-            Your name
-            <input type="text" placeholder="Type your name">
-          </label>
-          <label>
-            Your email
-            <input type="email" placeholder="Enter your email">
-          </label>
-          <a href="#" class="button-waitlist form-btn">
-            <span class="icon-circle"><i class="fas fa-chevron-right"></i></span>
-            <span class="button-custom">Join waitlist</span>
-          </a>
+          <!-- <div class="custom-alert success">
+            <span class="alert-icon">✔️</span>
+            <span class="alert-message">Success! Your action was completed.</span>
+            <span class="alert-close" onclick="this.parentElement.style.display='none';">×</span>
+          </div> -->
+
+          <!-- Error Alert -->
+          <!-- <div class="custom-alert error">
+            <span class="alert-icon">❌</span>
+            <span class="alert-message">Error! Something went wrong.</span>
+            <span class="alert-close" onclick="this.parentElement.style.display='none';">×</span>
+          </div> -->
+
+          <form action="POST">
+            <label>
+              Your name
+              <input type="text" placeholder="Type your name" required>
+            </label>
+            <label>
+              Your email
+              <input type="email" placeholder="Enter your email" required>
+            </label>
+            <a role="button" href="#" class="button-waitlist form-btn">
+              <span class="icon-circle"><i class="fas fa-chevron-right"></i></span>
+              <span class="button-custom">Join waitlist</span>
+            </a>
+          </form>
           <small>We respect your privacy and will never share your information.</small>
         </div>
       </div>
@@ -321,6 +334,12 @@
   <!-- js  -->
 
   <script>
+    setTimeout(() => {
+      document.querySelectorAll('.custom-alert').forEach(el => el.style.display = 'none');
+    }, 5000);
+  </script>
+
+  <script>
     const sections = document.querySelectorAll('.section');
 
     const revealOnScroll = () => {
@@ -338,7 +357,6 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
-
 
   <script>
     const animatedElements = document.querySelectorAll(
